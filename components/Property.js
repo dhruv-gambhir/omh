@@ -2,11 +2,11 @@ import React from 'react';
 
 const Property = ({ property }) => {
   return (
-    <div className="property">
-      <h2>{property.title}</h2>
-      <p>{property.description}</p>
-      <p>Price: ${property.price}</p>
-      <img src={property.imageurl} alt={property.title} />
+    <div className="property border p-4 m-4">
+      <img src={property.imageurl} alt={property.title} className="max-w-full" />
+      <h2 className="text-xl font-semibold">{property.title}</h2>
+      <p className="text-gray-600">{property.description}</p>
+      <p className="text-purple-700">Price: ${property.price}</p>
     </div>
   );
 };

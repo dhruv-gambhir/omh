@@ -26,9 +26,9 @@ const Home = () => {
   }, []);
 
   return (
-    <div className="container">
-      <h1>Property Listings</h1>
-      <div className="property-list">
+    <div className="container mx-auto p-4">
+      <h1 className="text-2xl font-semibold mb-4">Property Listings</h1>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {properties.map((property) => (
           <Property key={property.id} property={property} />
         ))}
