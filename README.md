@@ -1,40 +1,21 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+To run the app just go to the directly and run : 'npm run dev'
 
-## Getting Started
 
-First, run the development server:
+Answer to Interview Questions
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
-
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+1. How many hours did you spend on the challenge? 
+Ans. One hour
+2. What improvements or enhancements would you implement if you had more time? 
+Ans. Better Styling of property listings and better implementation of the old more button
+3. Which parts of your work are you most proud of? Please explain. 
+Ans. Picking up Next.js quickly after not having used it in a while.
+4. Which parts of the challenge do you spend the most time on? What did you find most difficult? Please explain. 
+Ans. The offset and limit parts.
+5. Did you use any libraries for the challenge? What are they used for? Why did you choose these libraries and not the alternatives? 
+Ans. I used tailwind. I prefer it over bootstrap because of its flexibility.
+6. What do you think of the challenge overall? 
+Ans. The challenge was quite doable.
+7. How can we improve the challenge? We would love to hear them. 
+Ans. I think the task was a nice entry point. However it would be nice to exercise freedom in styling instead of using the figma template.
+8. Any other thoughts that you wish to share with us? 
+Ans. This task was a great insight into the tech stack and requirements required for working at OhMyHome. I am definitely excited to learn more.
