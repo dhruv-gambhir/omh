@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Property from '../components/Property';
 
 const Home = () => {
@@ -6,6 +6,9 @@ const Home = () => {
   const [offset, setOffset] = useState(0);
   const [limit, setLimit] = useState(10);
   const [hasMore, setHasMore] = useState(true);
+
+  // Ref for the container to implement infinite scrolling
+  const containerRef = useRef(null);
 
   useEffect(() => {
     async function fetchProperties() {
@@ -29,42 +32,56 @@ const Home = () => {
     fetchProperties();
   }, [offset, limit]);
 
+  // Function to handle infinite scrolling
+  function handleScroll() {
+    if (containerRef.current && hasMore) {
+      const { scrollHeight, scrollTop, clientHeight } = containerRef.current;
+      if (scrollHeight - scrollTop === clientHeight) {
+        setOffset((prevOffset) => prevOffset + 4);
+      }
+    }
+  }
+
+  useEffect(() => {
+    if (containerRef.current && typeof window !== 'undefined') {
+      containerRef.current.addEventListener('scroll', handleScroll);
+    }
+
+    return () => {
+      if (containerRef.current && typeof window !== 'undefined') {
+        containerRef.current.removeEventListener('scroll', handleScroll);
+      }
+    };
+  }, [hasMore]);
+
   function handleLoadMore() {
     if (hasMore) {
       setOffset((prevOffset) => prevOffset + 4);
     }
   }
 
-  function renderLoadMoreButton() {
-    if (hasMore) {
-      return (
-        <button
-          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-4"
-          onClick={handleLoadMore}
-        >
-          Load More
-        </button>
-      );
-    }
-    return null;
-  }
-
   return (
     <div className="container mx-auto p-4">
       <h1 className="text-2xl font-semibold mb-4">Property Listings</h1>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div
+        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"
+        ref={containerRef} // Attach the ref to the container div
+      >
         {properties.map((property) => (
           <Property key={property.id} property={property} />
         ))}
       </div>
-      {hasMore && (
-        <button
-          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-4"
-          onClick={handleLoadMore}
-        >
-          Load More
-        </button>
-      )}
+      {hasMore ? (
+        // Use the "Load More" button
+        <div className="text-center mt-4">
+          <button
+            className="bg-blue-500 hover-bg-blue-700 text-white font-bold py-2 px-4 rounded"
+            onClick={handleLoadMore}
+          >
+            Load More
+          </button>
+        </div>
+      ) : null}
     </div>
   );
 };
